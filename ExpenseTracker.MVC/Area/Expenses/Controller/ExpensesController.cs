@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ExpenseTracker.MVC.Controllers
+namespace ExpenseTracker.MVC.Area.Expenses.Controller
 {
-    public class ExpensesController : Controller
+    public class ExpensesController : global::Microsoft.AspNetCore.Mvc.Controller
     {
         public IActionResult Index()
         {
