@@ -4,7 +4,7 @@ namespace ExpenseTracker.MVC.Models
 {
     public class Expence
     {
-        public Guid ExpencesId { get; set; }
+        public Guid Id { get; set; }
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         [Range(0, 100000)]

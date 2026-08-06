@@ -1,4 +1,4 @@
-using ExpenseTracker.MVC.Models;
+using ExpenseTracker.MVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

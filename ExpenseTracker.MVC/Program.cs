@@ -1,3 +1,5 @@
+using ExpenseTracker.MVC.Data;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,12 @@ builder.Host.UseSerilog((context, config) =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+// Register EF Core - DI
+builder.Services.AddDbContext<ExpenseDbContext>(dbContextOptions =>
+    dbContextOptions.UseNpgsql(
+        builder.Configuration.GetConnectionString("ExpenseTracker")));
 
 
 var app = builder.Build();

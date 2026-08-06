@@ -4,8 +4,8 @@ namespace ExpenseTracker.MVC.Models
 {
     public class Category
     {
-        public int CategoryId { get; }
+        public int Id { get; set; }
         [StringLength(25)]
-        public string CategoryName { get; }
+        public string CategoryName { get; set; } = "";
     }
 }
