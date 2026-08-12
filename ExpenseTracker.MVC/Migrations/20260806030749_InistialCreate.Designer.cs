@@ -38,17 +38,17 @@ namespace ExpenseTracker.MVC.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("character varying(25)");
 
-                    b.Property<Guid?>("ExpenceId")
+                    b.Property<Guid?>("ExpenseId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ExpenceId");
+                    b.HasIndex("ExpenseId");
 
                     b.ToTable("Category", (string)null);
                 });
 
-            modelBuilder.Entity("ExpenseTracker.MVC.Models.Expence", b =>
+            modelBuilder.Entity("ExpenseTracker.MVC.Models.Expense", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,7 +76,7 @@ namespace ExpenseTracker.MVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Expence", (string)null);
+                    b.ToTable("Expense", (string)null);
                 });
 
             modelBuilder.Entity("ExpenseTracker.MVC.Models.PaymentMethod", b =>
@@ -87,7 +87,7 @@ namespace ExpenseTracker.MVC.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<Guid?>("ExpenceId")
+                    b.Property<Guid?>("ExpenseId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Type")
@@ -97,26 +97,26 @@ namespace ExpenseTracker.MVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ExpenceId");
+                    b.HasIndex("ExpenseId");
 
                     b.ToTable("PaymentMethod", (string)null);
                 });
 
             modelBuilder.Entity("ExpenseTracker.MVC.Models.Category", b =>
                 {
-                    b.HasOne("ExpenseTracker.MVC.Models.Expence", null)
+                    b.HasOne("ExpenseTracker.MVC.Models.Expense", null)
                         .WithMany("Categories")
-                        .HasForeignKey("ExpenceId");
+                        .HasForeignKey("ExpenseId");
                 });
 
             modelBuilder.Entity("ExpenseTracker.MVC.Models.PaymentMethod", b =>
                 {
-                    b.HasOne("ExpenseTracker.MVC.Models.Expence", null)
+                    b.HasOne("ExpenseTracker.MVC.Models.Expense", null)
                         .WithMany("PaymentMethods")
-                        .HasForeignKey("ExpenceId");
+                        .HasForeignKey("ExpenseId");
                 });
 
-            modelBuilder.Entity("ExpenseTracker.MVC.Models.Expence", b =>
+            modelBuilder.Entity("ExpenseTracker.MVC.Models.Expense", b =>
                 {
                     b.Navigation("Categories");
 

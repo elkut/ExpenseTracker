@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ExpenseTracker.MVC.Area.Expenses.Controller
+namespace ExpenseTracker.MVC.Area.Expense.Controllers
 {
-    public class ExpensesController : global::Microsoft.AspNetCore.Mvc.Controller
+    [Area("Expense")]
+    public class ExpenseController : Controller
     {
         public IActionResult Index()
         {

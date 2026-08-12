@@ -13,7 +13,7 @@ namespace ExpenseTracker.MVC.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Expence",
+                name: "Expense",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -26,7 +26,7 @@ namespace ExpenseTracker.MVC.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Expence", x => x.Id);
+                    table.PrimaryKey("PK_Expense", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -36,15 +36,15 @@ namespace ExpenseTracker.MVC.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CategoryName = table.Column<string>(type: "character varying(25)", maxLength: 25, nullable: false),
-                    ExpenceId = table.Column<Guid>(type: "uuid", nullable: true)
+                    ExpenseId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Category_Expence_ExpenceId",
-                        column: x => x.ExpenceId,
-                        principalTable: "Expence",
+                        name: "FK_Category_Expense_ExpenseId",
+                        column: x => x.ExpenseId,
+                        principalTable: "Expense",
                         principalColumn: "Id");
                 });
 
@@ -55,27 +55,27 @@ namespace ExpenseTracker.MVC.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Type = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
-                    ExpenceId = table.Column<Guid>(type: "uuid", nullable: true)
+                    ExpenseId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PaymentMethod", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PaymentMethod_Expence_ExpenceId",
-                        column: x => x.ExpenceId,
-                        principalTable: "Expence",
+                        name: "FK_PaymentMethod_Expense_ExpenseId",
+                        column: x => x.ExpenseId,
+                        principalTable: "Expense",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Category_ExpenceId",
+                name: "IX_Category_ExpenseId",
                 table: "Category",
-                column: "ExpenceId");
+                column: "ExpenseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PaymentMethod_ExpenceId",
+                name: "IX_PaymentMethod_ExpenseId",
                 table: "PaymentMethod",
-                column: "ExpenceId");
+                column: "ExpenseId");
         }
 
         /// <inheritdoc />
@@ -88,7 +88,7 @@ namespace ExpenseTracker.MVC.Migrations
                 name: "PaymentMethod");
 
             migrationBuilder.DropTable(
-                name: "Expence");
+                name: "Expense");
         }
     }
 }

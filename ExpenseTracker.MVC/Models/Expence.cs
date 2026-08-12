@@ -2,7 +2,7 @@
 
 namespace ExpenseTracker.MVC.Models
 {
-    public class Expence
+    public class Expense
     {
         public Guid Id { get; set; }
         [DataType(DataType.Date)]
