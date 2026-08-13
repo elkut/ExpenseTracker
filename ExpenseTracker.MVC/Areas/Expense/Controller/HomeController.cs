@@ -3,7 +3,7 @@
 namespace ExpenseTracker.MVC.Area.Expense.Controllers
 {
     [Area("Expense")]
-    public class ExpenseController : Controller
+    public class HomeController : Controller
     {
         public IActionResult Index()
         {
